@@ -18,16 +18,16 @@ public class PacmanMove : MonoBehaviour
     {
         Vector2 p = Vector2.MoveTowards(transform.position, dest, speed);
         GetComponent<Rigidbody2D>().MovePosition(p);
-        if (Input.GetKey(KeyCode.RightArrow)) {
+        if (Input.GetKey(KeyCode.D)) {
             dest = (Vector2)transform.position + Vector2.right;
         }
-        if (Input.GetKey(KeyCode.LeftArrow)) {
+        if (Input.GetKey(KeyCode.A)) {
             dest = (Vector2)transform.position + Vector2.left;
         }
-        if (Input.GetKey(KeyCode.DownArrow)) {
+        if (Input.GetKey(KeyCode.S)) {
             dest = (Vector2)transform.position - Vector2.up;
         }
-        if (Input.GetKey(KeyCode.UpArrow)) {
+        if (Input.GetKey(KeyCode.W)) {
             dest = (Vector2)transform.position - Vector2.down;
         }
         Vector2 dir = dest - (Vector2)transform.position; 

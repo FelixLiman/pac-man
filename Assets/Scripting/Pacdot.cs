@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Pacdot : MonoBehaviour
-{
-    public TMPro.TMP_Text scoreLbl;
+{ 
+    public TextMeshProUGUI scoreLbl;
+    // private int score;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,9 +18,16 @@ public class Pacdot : MonoBehaviour
     {
         
     }
+
     void OnTriggerEnter2D(Collider2D co) {
-        if (co.name == "Picture2_0") 
-            scoreLbl.text = "3";
+        if (co.name == "pacman") {
+            int myInt;
+            int.TryParse(scoreLbl.text, out myInt);
+            myInt++;
+            Debug.Log(myInt);
+            string newString = myInt.ToString();
+            scoreLbl.text = newString;
             Destroy(gameObject);
+        }
     }
 }
